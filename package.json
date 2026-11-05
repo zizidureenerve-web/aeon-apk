@@ -1,0 +1,18 @@
+{
+  "name": "abyssal",
+  "version": "1.0.0",
+  "description": "Abyssal — un jeu de devinette sémantique à thème sous-marin. Un mot repose dans les abysses ; plus votre proposition s'en rapproche, plus vous plongez profond.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "license": "MIT"
+}

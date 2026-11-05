@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abyssal — le mot des profondeurs</title>
+  <meta name="description" content="Un mot repose dans les abysses. Proposez, approchez-vous, plongez. Plus votre mot est proche, plus vous descendez." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- bulles décoratives -->
+  <div class="bubbles" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="logo">Abyss<span>al</span></div>
+    <div class="depth-readout"><span id="depth-current">0</span> m</div>
+  </header>
+
+  <main>
+    <section class="hint-card">
+      <p class="hint-label">La plongée du jour</p>
+      <p class="hint" id="hint">Chargement du sonar…</p>
+      <p class="engine" id="engine"></p>
+    </section>
+
+    <form id="guess-form" autocomplete="off">
+      <input id="guess-input" type="text" placeholder="Votre proposition…" aria-label="Proposition" disabled />
+      <button id="guess-btn" type="submit" disabled>Plonger</button>
+    </form>
+
+    <p class="status" id="status"></p>
+
+    <!-- colonne de profondeur -->
+    <section class="gauge" aria-hidden="true">
+      <div class="gauge-fill" id="gauge-fill"></div>
+      <div class="diver" id="diver">🤿</div>
+      <div class="gauge-labels">
+        <span>Surface · 0 m</span>
+        <span>Abysse · 1000 m</span>
+      </div>
+    </section>
+
+    <section class="guesses">
+      <h2 id="guesses-title" hidden>Vos sondes</h2>
+      <ul id="guesses-list"></ul>
+    </section>
+
+    <div class="actions">
+      <button id="giveup-btn" class="ghost" hidden>Abandonner</button>
+      <button id="new-btn" class="ghost">Nouvelle plongée</button>
+    </div>
+  </main>
+
+  <div class="win-overlay" id="win-overlay" hidden>
+    <div class="win-card">
+      <h2 id="win-title">Touché le fond !</h2>
+      <p>Le mot était <strong id="win-word"></strong>.</p>
+      <p id="win-stats"></p>
+      <button id="win-again">Replonger</button>
+    </div>
+  </div>
+
+  <footer>Proposez un mot — le sonar mesure sa proximité sémantique avec la cible cachée.</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
