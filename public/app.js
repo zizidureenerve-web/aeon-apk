@@ -3,6 +3,7 @@ const $ = (id) => document.getElementById(id);
 const state = { gameId: null, maxDepth: 1000, best: 0, solved: false, rows: new Map() };
 
 const els = {
+  theme: $("theme"),
   hint: $("hint"),
   engine: $("engine"),
   input: $("guess-input"),
@@ -83,6 +84,8 @@ async function newGame() {
     const d = await r.json();
     state.gameId = d.gameId;
     state.maxDepth = d.maxDepth;
+    els.theme = els.theme || $("theme");
+    if (els.theme) els.theme.textContent = d.theme || "Thème";
     els.hint.textContent = d.indice;
     els.engine.textContent = d.engine === "local"
       ? "sonar local (sans clé API)"

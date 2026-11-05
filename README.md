@@ -1,12 +1,13 @@
 # Abyssal 🌊
 
-Un jeu de devinette **sémantique** à thème sous-marin, inspiré de l'esprit de
-sites comme *abyssion.fr* : un mot repose au fond de l'abysse. À chaque partie,
-une **énigme différente** s'affiche. Vous proposez des mots ; un moteur mesure
-la **proximité sémantique** de chaque proposition avec la cible cachée, et plus
-vous vous rapprochez, plus votre plongeur **descend** vers le fond.
+Un jeu de devinette **sémantique**, dans l'esprit de sites comme *abyssion.fr* :
+une cible **niche** (pointue) repose au fond de l'abysse. À chaque partie, un
+**thème** (Minecraft, pays, métier, musique, animal, astronomie…) et une
+**énigme** s'affichent. Vous proposez des mots ; un moteur mesure la **proximité
+sémantique** de chaque proposition avec la cible, et plus vous approchez du
+sens, plus votre plongeur **descend** vers le fond.
 
-- 🎲 **Questions qui changent à chaque partie** — tirées au hasard d'une liste.
+- 🎲 **Cibles niche, tous thèmes, qui changent à chaque partie** — tirées au hasard de `words.js`.
 - 🧭 **Détection de la réponse la plus proche** — similarité cosinus sur des
   embeddings (NVIDIA NIM ou tout endpoint compatible OpenAI), avec repli lexical
   local si aucune clé n'est fournie.

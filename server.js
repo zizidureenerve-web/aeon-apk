@@ -108,8 +108,10 @@ const normalize = (s) =>
   (s || "")
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/[̀-ͯ]/g, "") // accents
+    .replace(/[-'’]/g, " ")          // traits d'union et apostrophes -> espace
+    .replace(/[^a-z0-9\s]/g, "")     // ponctuation restante
+    .replace(/\s+/g, " ")            // espaces multiples
     .trim();
 
 async function similarity(guess, target) {
@@ -161,7 +163,13 @@ setInterval(() => {
  * ------------------------------------------------------------------ */
 app.get("/api/new", (_req, res) => {
   const { gameId, wordIndex } = newGame();
-  res.json({ gameId, indice: WORDS[wordIndex].indice, maxDepth: MAX_DEPTH, engine: ENGINE.kind });
+  res.json({
+    gameId,
+    theme: WORDS[wordIndex].theme,
+    indice: WORDS[wordIndex].indice,
+    maxDepth: MAX_DEPTH,
+    engine: ENGINE.kind,
+  });
 });
 
 app.post("/api/guess", async (req, res) => {
